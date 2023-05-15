@@ -108,4 +108,11 @@ export class PokemonService {
       console.log(error);
       throw new InternalServerErrorException(`Can't create Pokemon - Check server logs`);
   } 
+
+  async fillPokemosWithSeeData(pokemons:CreatePokemonDto[]){
+
+    await this.pokemonModule.create(pokemons);
+
+    return;
+  }
 }
