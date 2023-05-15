@@ -10,7 +10,7 @@ export class PokemonService {
   
   //Asi enjectamos el modelo
   constructor(
-    @InjectModel(Pokemon.name)
+    @InjectModel(Pokemon.name)                      //Para usar el modelo de base de datos
     private readonly pokemonModule: Model<Pokemon>
   ) {
 
