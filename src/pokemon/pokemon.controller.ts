@@ -17,6 +17,7 @@ export class PokemonController {
 
   @Get()
   findAll(@Query() paginationDto:PaginationDto) {
+    //En el query param se almacenan todos los query
     return this.pokemonService.findAll(paginationDto);
   }
 
