@@ -11,8 +11,12 @@ async function bootstrap() {
   //Configurando los dtos a nivel global 
   app.useGlobalPipes(
     new ValidationPipe({
-    whitelist: true,
-    forbidNonWhitelisted: true,
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,              //Para convertir los parametro a numero si son numeros
+      transformOptions: {
+        enableImplicitConversion: true
+      }
     })
    );
 
