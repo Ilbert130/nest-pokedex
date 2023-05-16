@@ -3,7 +3,7 @@ import { PokeResponse } from './interfaces/poke-response.interface';
 import { Model } from 'mongoose';
 import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
 import { InjectModel } from '@nestjs/mongoose';
-import { HttpAdapter } from 'src/common/interfaces/http-adapter.interface';
+import { AxiosAdapter } from 'src/common/adapters/axios.adapter';
 
 @Injectable()
 export class SeedService {
@@ -11,12 +11,11 @@ export class SeedService {
   constructor(
     @InjectModel(Pokemon.name)                      //Para usar el modelo de base de datos
     private readonly pokemonModule: Model<Pokemon>,
-    private readonly http: HttpAdapter,
+    private readonly http: AxiosAdapter,
   ) {}
 
   async executeSeed() {
 
-    //Para elemimiar todos los registros de una tabla
     await this.pokemonModule.deleteMany({});
 
     const data = await this.http.get<PokeResponse>('https://pokeapi.co/api/v2/pokemon?limit=650')
