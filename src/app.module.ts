@@ -12,7 +12,7 @@ import { JoiValidationSchema } from './config/joi.validation';
 @Module({
   imports: [
 
-    //Para la configuracion de las variables de entorno
+    //Para la configuracion de las variables de entorno. Siempre se coloca al principio en esta configuracion
     ConfigModule.forRoot({
       load: [EnvConfiguration], //Este es el metodo que usamos para configurar nuestars variables de entorno
       validationSchema: JoiValidationSchema //validando la data de las variables de entornos

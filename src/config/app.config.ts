@@ -1,6 +1,6 @@
 
 //Con este metodo estamos configurando nuestras variables de entorno para que tengan un valor por defecto 
-//y estas se puedan injectar como una dependencia.
+//y estas se puedan injectar como una dependencia. Esto valida si tiene valor
 export const EnvConfiguration = () => ({
     environment: process.env.NODE_ENV || 'dev',
     mongodb: process.env.MONGODB,
